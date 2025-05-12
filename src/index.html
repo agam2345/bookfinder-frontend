@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Finder App</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    />
+    <script src="https://unpkg.com/slim-select@latest/dist/slimselect.min.js"></script>
+    <link href="https://unpkg.com/slim-select@latest/dist/slimselect.css" rel="stylesheet"></link>
+</head>
+<body>
+    <header>
+       <div class="main-header">
+        <a class="brand-name" href="#/">Book Finder App</a>
+        <nav class="navigation-drawer">
+            <ul class="nav-list">
+                <li><a href="#">Beranda</a></li>
+                <li><a href="#">Selesai dibaca</a></li>
+                <li><a href="#">Profile</a></li>
+                <li id="filter-drawer"><a href="#"><i class="fas fa-filter"></i>Filter</a></li>
+                <li><a href="#"> <i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            </ul>
+        </nav>
+        <button id="drawer-button" class="drawer-button">☰</button>  
+        <div id="filter-panel" class="filter-panel">
+            <div class="filter-head"> 
+                <h1>Filter Buku</h1>
+                <button id="close-filter" class="close-btn">&times;</button>
+            </div>
+            <div class="filter-content">
+                <form>
+                <section>
+                    <p>Bagaimana Perasaan Anda?</p>
+                    <select id="select-mood">
+                    <option value="">Senang</option>
+                    <option value="">Susah</option>
+                    <option value="">Sedih</option>
+                    </select>
+                </section>
+                <section>
+                    <p>Genre buku apa yang Anda ingin baca?</p>
+                    <select id="select-genre">
+                    <option value="">Dangdut</option>
+                    <option value="">Pop</option>
+                    <option value="">Jazz</option>
+                    <option value="">Pendidikan</option>
+                    <option value="">Keroncong</option>
+                    <option value="">Dangdut</option>
+                    <option value="">Pop</option>
+                    <option value="">Jazz</option>
+                    <option value="">Pendidikan</option>
+                    <option value="">Keroncong</option>
+                    <option value="">Dangdut</option>
+                    <option value="">Pop</option>
+                    <option value="">Jazz</option>
+                    <option value="">Pendidikan</option>
+                    <option value="">Keroncong</option>
+                    <option value="">Dangdut</option>
+                    <option value="">Pop</option>
+                    <option value="">Jazz</option>
+                    <option value="">Pendidikan</option>
+                    <option value="">Keroncong</option>
+                    <option value="">Dangdut</option>
+                    <option value="">Pop</option>
+                    <option value="">Jazz</option>
+                    <option value="">Pendidikan</option>
+                    <option value="">Keroncong</option>
+                    </select>
+                </section>
+                 <div id="submit-button-container">
+                    <button class="btn" type="submit">Terapkan</button>
+                </div>
+                </form>
+            </div>
+            </div>  
+       </div>
+    </header>
+    <main id="main-container">
+    </main>
+    <footer></footer>
+</body>
+</html>

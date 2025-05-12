@@ -1,0 +1,5 @@
+function generateFilterFormTemplate(){
+    return `
+    
+    `;
+}
