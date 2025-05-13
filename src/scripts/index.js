@@ -5,8 +5,8 @@ import '../styles/responsive.css'
 window.addEventListener('DOMContentLoaded', async () => {
     const app = new App({
         content: document.getElementById('main-container'),
-        filterDrawer : document.getElementById('filter-drawer'),
-        filterContent : document.getElementById('filter-panel')
+        drawerButton : document.getElementById('drawer-button'),
+        navigationDrawer : document.querySelector('.navigation-drawer'),
     });
 
     app.renderPage();   

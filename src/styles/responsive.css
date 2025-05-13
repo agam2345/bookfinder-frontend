@@ -15,5 +15,8 @@
     .nav-list {
         flex-direction: row;
       }
+    .drawer-button {
+        display: none;
+    }
 
 }
