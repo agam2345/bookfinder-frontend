@@ -9,6 +9,12 @@ window.addEventListener('DOMContentLoaded', async () => {
         navigationDrawer : document.querySelector('.navigation-drawer'),
     });
 
-    app.renderPage();   
-    
+    // render pertama kali
+  await app.renderPage();
+
+  window.addEventListener('hashchange', async () => {
+    await app.renderPage();
+      
+    });
+
 })
