@@ -2,17 +2,23 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+   
 }
 html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
     background-color: #F2e5D0;
+
+    display: flex;
+    flex-direction: column;
 }
   
 
 main{
     padding: 0;
     margin: 0;
+    flex: 1;
 
 }
 
@@ -20,9 +26,9 @@ main{
     background-color: #fff;
     min-height: 90px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-
+    padding: 0 20px;
 }
 .brand-name {
     font-size: 1.8rem;
@@ -180,3 +186,129 @@ form{
 }
 
    */
+footer {
+  background-color: #fff;
+  padding: 20px 0;
+  margin-top: 40px;
+  border-top: 1px solid #ccc;
+   
+}
+
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ 
+  padding: 0 20px;
+  color: #725b3a;
+  font-size: 0.9rem;
+}
+
+.footer-left {
+  font-weight: bold;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+/* LOGIN & REGISTER FORM REFINEMENT */
+.login-container,
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.login-form-container,
+.register-form-container {
+  max-width: 400px;
+  width: 100%;
+  background-color: white;
+  padding: 30px 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.login__title,
+.register__title {
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+  color: #725b3a;
+  text-align: center;
+}
+
+.form-control label {
+  display: block;
+  margin-bottom: 6px;
+  color: #725b3a;
+  font-weight: 500;
+}
+
+.form-control input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.form-control input:focus {
+  border-color: #de9226;
+  box-shadow: 0 0 5px rgba(252, 167, 44, 0.3);
+}
+
+.form-buttons {
+  margin-top: 20px;
+}
+
+.form-buttons .btn {
+  width: 100%;
+  background-color: #A86523;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form-buttons .btn:hover {
+  background-color: #e18f1d;
+}
+
+.login-form__do-not-have-account,
+.register-form__already-have-account {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.login-form__do-not-have-account a,
+.register-form__already-have-account a {
+  color: #FCA72C;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-form__do-not-have-account a:hover,
+.register-form__already-have-account a:hover {
+  text-decoration: underline;
+}
+/* end login register */
+
+.auth-buttons {
+ 
+  display: flex;
+  gap: 20px;
+}
+
+.auth-buttons li {
+  list-style: none;
+}
+

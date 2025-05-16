@@ -54,3 +54,19 @@ export function generateFilterFormTemplate(){
        </div>
     `;
 }
+export function generateUnauthenticatedNavigationListTemplate() {
+  return `
+    <li id="push-notification-tools" class="push-notification-tools"></li>
+    <div class="auth-buttons">
+      <li><a id="login-button" href="#/login">Login</a></li>
+      <li><a id="register-button" href="#/register">Register</a></li>
+    </div>
+  `;
+}
+
+export function generateAuthenticatedNavigationListTemplate() {
+  return `
+    <li id="push-notification-tools" class="push-notification-tools"></li>
+    <li><a id="logout-button" class="logout-button" href="#/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+  `;
+}
