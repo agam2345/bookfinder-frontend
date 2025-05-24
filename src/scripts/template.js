@@ -70,3 +70,32 @@ export function generateAuthenticatedNavigationListTemplate() {
     <li><a id="logout-button" class="logout-button" href="#/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
   `;
 }
+
+export function generateBookItemTemplate({ 
+  id,
+  title,
+  description,
+  rating,
+  thumbnail
+}) {
+  return `
+    <div tabindex="0" class="book-item" data-bookid="${id}">
+     <img src="${thumbnail}" alt="${title}" class="book-item__thumbnail">
+      <div class="book-item__body">
+        <div class="book-item__main">
+          <h2 class="book-item__title">${title}</h2>
+          <div class="book-item__rating">
+            <i class="fas fa-star"></i> ${rating ?? 'N/A'}
+          </div>
+        </div>
+        <div class="book-item__description">
+          ${description}
+        </div>
+        <a class="btn book-item__read-more" href="#/books/${id}">
+          Selengkapnya <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  `;
+}
+
