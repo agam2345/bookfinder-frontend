@@ -1,5 +1,5 @@
 import { getAccessToken } from '../utils/auth';
-import { BASE_URL, DUMMY_ITEMS } from '../config';
+import { BASE_URL } from '../config';
 
 const ENDPOINTS ={
      // Auth
@@ -8,10 +8,10 @@ const ENDPOINTS ={
   MY_USER_INFO: `${BASE_URL}/users/me`,
 
     //item
-  PRODUCTS:`${DUMMY_ITEMS}/products`
+  BOOKS: `${BASE_URL}/books`,
 };
-export async function getRegistered({ name, email, password }) {
-  const data = JSON.stringify({ name, email, password });
+export async function getRegistered({ username, email, password }) {
+  const data = JSON.stringify({ username, email, password });
 
   const fetchResponse = await fetch(ENDPOINTS.REGISTER, {
     method: 'POST',
@@ -55,12 +55,19 @@ export async function getMyUserInfo() {
     ok: fetchResponse.ok,
   };
 }
-export async function getProducts() {
-  const response = await fetch(ENDPOINTS.PRODUCTS);
+export async function getAllBooks() {
+    const accessToken = getAccessToken();
+
+   const response = await fetch(ENDPOINTS.BOOKS, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+
   const json = await response.json();
 
   return {
-    data: json.products,
+    data: json.data,
     ok: response.ok,
   };
 }

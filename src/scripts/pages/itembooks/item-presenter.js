@@ -11,8 +11,8 @@ export default class ItemPresenter {
     const booksHTML = books.map(book => generateBookItemTemplate({
       id: book.id,
       title: book.title,
-      description: book.description,
-      rating: book.rating,
+      description_cleaned: book.description_cleaned,
+      average_rating: book.average_rating,
       thumbnail: book.thumbnail,
     })).join('');
 

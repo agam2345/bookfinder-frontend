@@ -32,8 +32,8 @@ export default class berandaPage{
          const bookItemsContainer = document.getElementById('book-items');
 
     try {
-      const response = await BookAPI.getProducts();
-      if (!response.ok) throw new Error('Gagal memuat data produk');
+      const response = await BookAPI.getAllBooks();
+      if (!response.ok) throw new Error('Gagal memuat data buku');
 
       this.#presenter = new ItemPresenter({ view: bookItemsContainer });
       this.#presenter.renderBooks(response.data);
