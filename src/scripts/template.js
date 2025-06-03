@@ -74,22 +74,22 @@ export function generateAuthenticatedNavigationListTemplate() {
 export function generateBookItemTemplate({ 
   id,
   title,
-  description,
-  rating,
+  description_cleaned,
+  average_rating,
   thumbnail
 }) {
   return `
-    <div tabindex="0" class="book-item" data-bookid="${id}">
+    <div tabindex="0" class="book-card book-item" data-bookid="${id}">
      <img src="${thumbnail}" alt="${title}" class="book-item__thumbnail">
       <div class="book-item__body">
         <div class="book-item__main">
           <h2 class="book-item__title">${title}</h2>
           <div class="book-item__rating">
-            <i class="fas fa-star"></i> ${rating ?? 'N/A'}
+            <i class="fas fa-star"></i> ${average_rating ?? 'N/A'}
           </div>
         </div>
         <div class="book-item__description">
-          ${description}
+          ${description_cleaned}
         </div>
         <a class="btn book-item__read-more" href="#/books/${id}">
           Selengkapnya <i class="fas fa-arrow-right"></i>
