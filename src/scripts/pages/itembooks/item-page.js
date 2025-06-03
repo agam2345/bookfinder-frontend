@@ -6,7 +6,7 @@ export default class ItemPage {
 
   async render() {
     return `
-      <div id="book-items" class="container mt-4">
+      <div id="book-items" class="container mt-4 book-grid">
         <!-- item buku akan dimasukkan di sini -->
       </div>
     `;
@@ -17,8 +17,8 @@ export default class ItemPage {
 
     // Panggil API dulu, lalu lempar data ke presenter
     try {
-      const response = await BookAPI.getProducts();
-      if (!response.ok) throw new Error('Gagal memuat data produk');
+      const response = await BookAPI.getAllBooks();
+      if (!response.ok) throw new Error('Gagal memuat data buku');
 
       this.#presenter = new ItemPresenter({ view: container });
       this.#presenter.renderBooks(response.data);
