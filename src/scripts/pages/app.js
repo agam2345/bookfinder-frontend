@@ -6,6 +6,7 @@ import {
   generateFilterFormTemplate,
   generateUnauthenticatedNavigationListTemplate,
 } from "../template";
+import { matchRoute } from "../routes/routes";
 
 export default class App {
   #content;
@@ -21,7 +22,8 @@ export default class App {
 
   async renderPage() {
     const url = getActiveRoute();
-    const routeHandler = routes[url];
+    const routeHandler = matchRoute(url);
+    console.log('urlny',url)
 
     if (!routeHandler) {
       this.#content.innerHTML = "<p>404 Halaman tidak ditemukan</p>";

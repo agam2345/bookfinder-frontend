@@ -9,6 +9,7 @@ const ENDPOINTS ={
 
     //item
   BOOKS: `${BASE_URL}/books`,
+
 };
 export async function getRegistered({ username, email, password }) {
   const data = JSON.stringify({ username, email, password });
@@ -63,6 +64,52 @@ export async function getAllBooks() {
       Authorization: `Bearer ${accessToken}`,
     },
   });
+
+  const json = await response.json();
+
+  return {
+    data: json.data,
+    ok: response.ok,
+  };
+}
+
+export async function getDetailBook(id){
+  const accessToken = getAccessToken();
+  const response = await fetch(`${ENDPOINTS.BOOKS}/${id}`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+
+  const json = await response.json();
+  return json.data;
+}
+
+export async function getBooksByMoodOrGenre({mood, genre}){
+  const accessToken = getAccessToken();
+    const response = await fetch(`${ENDPOINTS.BOOKS}?genre=${genre}&&mood=${mood}`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+
+  const json = await response.json();
+
+  return {
+    data: json.data,
+    ok: response.ok,
+  };
+}
+
+export async function getBooksByQueryUser(query){
+  const accessToken = getAccessToken();
+    const response = await fetch(`${ENDPOINTS.BOOKS}/filter`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+      body: query
+    });
 
   const json = await response.json();
 

@@ -1,6 +1,7 @@
 import RegisterPage from "../pages/auth/register/register-page";
 import LoginPage from "../pages/auth/login/login-page";
 import berandaPage from "../pages/beranda/beranda-page";
+import { detailBookPage } from "../pages/detailbook/detail-page";
 import {
   checkAuthenticatedRoute,
   checkUnauthenticatedRouteOnly,
@@ -15,6 +16,26 @@ const routes = {
   "/onboarding/mood": () => checkAuthenticatedRoute(new OnboardingMoodPage()),
   "/onboarding/genre": () => checkAuthenticatedRoute(new OnboardingGenrePage()),
   "/": () => checkAuthenticatedRoute(new berandaPage()),
+  "/books/:id":  () => checkAuthenticatedRoute(new detailBookPage())
 };
+
+export function matchRoute(url) {
+  for (const path in routes) {
+    if (path.includes(":")) {
+      // Ubah "/books/:id" jadi regex "/books/[^/]+"
+      const regexPath = "^" + path.replace(/:\w+/g, "[^/]+") + "$";
+      const regex = new RegExp(regexPath);
+      if (regex.test(url)) {
+        return routes[path]; // cocok, return handler-nya
+      }
+    } else {
+      if (path === url) return routes[path]; // exact match
+    }
+  }
+
+  return null; // route tidak ditemukan
+}
+
+
 
 export default routes;

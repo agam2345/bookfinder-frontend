@@ -10,39 +10,22 @@ export function generateFilterFormTemplate(){
                 <section>
                     <p>Bagaimana Perasaan Anda?</p>
                     <select id="select-mood">
-                    <option value="">Senang</option>
-                    <option value="">Susah</option>
-                    <option value="">Sedih</option>
+                    <option value="">Pilih</option>
+                    <option value="excited">Excited</option>
+                    <option value="angry">Angry</option>
+                    <option value="happy">Happy</option>
+                    <option value="sad">Sad</option>
+                    <option value="neutral">Neutral</option>
                     </select>
                 </section>
                 <section>
                     <p>Genre buku apa yang Anda ingin baca?</p>
                     <select id="select-genre">
-                    <option value="">Dangdut</option>
-                    <option value="">Pop</option>
-                    <option value="">Jazz</option>
-                    <option value="">Pendidikan</option>
-                    <option value="">Keroncong</option>
-                    <option value="">Dangdut</option>
-                    <option value="">Pop</option>
-                    <option value="">Jazz</option>
-                    <option value="">Pendidikan</option>
-                    <option value="">Keroncong</option>
-                    <option value="">Dangdut</option>
-                    <option value="">Pop</option>
-                    <option value="">Jazz</option>
-                    <option value="">Pendidikan</option>
-                    <option value="">Keroncong</option>
-                    <option value="">Dangdut</option>
-                    <option value="">Pop</option>
-                    <option value="">Jazz</option>
-                    <option value="">Pendidikan</option>
-                    <option value="">Keroncong</option>
-                    <option value="">Dangdut</option>
-                    <option value="">Pop</option>
-                    <option value="">Jazz</option>
-                    <option value="">Pendidikan</option>
-                    <option value="">Keroncong</option>
+                    <option value="">Pilih</option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Nonfiction">Nonfiction</option>
+                    <option value="Children's Fiction">Children's Fiction</option>
+                  
                     </select>
                 </section>
                  <div id="submit-button-container">
@@ -99,3 +82,37 @@ export function generateBookItemTemplate({
   `;
 }
 
+export const createBookDetailTemplate = (book) => `
+  <h2 class="book__title">${book.title}</h2>
+  <div class="detail_book_body"> 
+  <img class="book__cover" src="${book.thumbnail}" alt="${book.title}" />
+  <div class="book__info">
+    <h3>Information</h3>
+    <h4>Penulis</h4>
+    <p>${book.authors}</p>
+    <h4>Katagori</h4>
+    <p>${book.simple_categories}</p>
+    <h4>Mood</h4>
+    <p>${book.emotion_simple}</p>
+    <h4>Tahun Publikasi</h4>
+    <p>${book.published_year}</p>
+    <h4>Halaman</h4>
+    <p>${book.num_pages} pages</p>
+    <h4>Rating</h4>
+    <p><i class="fas fa-star"></i> ${book.average_rating}</p>
+  </div>
+  </div>
+  <div class="book__description">
+    <h3>Description</h3>
+    <p>${book.description_cleaned}</p>
+  </div>
+`;
+
+
+export function indikatorLoading(){
+  return `
+  <div class="loading-overlay" id="loading-overlay">
+    <div class="spinner"></div>
+  </div>
+`
+}
