@@ -11,7 +11,7 @@ export default class OnboardingGenrePresenter {
 
   handleSubmit(data) {
     if (data.genre?.length) {
-      localStorage.setItem("user-genres", JSON.stringify(data.genre));
+      localStorage.setItem("user-genre", JSON.stringify(data.genre));
     }
 
     const mood = localStorage.getItem("user-mood");

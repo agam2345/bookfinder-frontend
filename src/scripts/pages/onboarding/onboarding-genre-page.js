@@ -5,12 +5,11 @@ export default class OnboardingGenrePage {
         <h2 id="form-title">Genre buku apa yang kamu suka?</h2>
         <form id="onboarding-form">
           <div class="form-group">
-            <select id="select-genre" multiple>
-              <option value="fiksi">Fiksi</option>
-              <option value="non-fiksi">Non-Fiksi</option>
-              <option value="horor">Horor</option>
-              <option value="romantis">Romantis</option>
-              <option value="komedi">Komedi</option>
+            <select id="select-genre">
+              <option value="">Pilih</option>
+              <option value="Fiction">Fiction</option>
+              <option value="Nonfiction">Nonfiction</option>
+              <option value="Children's Fiction">Children's Fiction</option>
             </select>
           </div>
 
@@ -27,23 +26,10 @@ export default class OnboardingGenrePage {
   }
 
   async afterRender() {
-    new SlimSelect({
-      select: "#select-genre",
-    });
-
     const skipBtn = document.getElementById("skip-btn");
+    const nextBtn = document.getElementById("next-btn");
     const backBtn = document.getElementById("back-btn");
-    const form = document.getElementById("onboarding-form");
-
-    skipBtn.addEventListener("click", () => {
-      if (document.startViewTransition) {
-        document.startViewTransition(() => {
-          location.hash = "/";
-        });
-      } else {
-        location.hash = "/";
-      }
-    });
+    const selectGenre = document.getElementById("select-genre");
 
     backBtn.addEventListener("click", () => {
       if (document.startViewTransition) {
@@ -55,16 +41,26 @@ export default class OnboardingGenrePage {
       }
     });
 
-    form.addEventListener("submit", (e) => {
+    nextBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      const genres = Array.from(
-        document.getElementById("select-genre").selectedOptions
-      ).map((opt) => opt.value);
+      const genre = selectGenre.value;
 
-      if (genres.length) {
-        localStorage.setItem("user-genres", JSON.stringify(genres));
+      if (genre) {
+        localStorage.setItem("user-genre", genre);
+        console.log("Genre disimpan di localStorage:", genre);
+      } else {
+        localStorage.removeItem("user-genre");
+        console.log("Genre dihapus dari localStorage");
       }
 
+      // console.log("Data di localStorage sebelum navigasi:", localStorage);
+
+      location.hash = "/";
+    });
+
+    skipBtn.addEventListener("click", () => {
+      localStorage.removeItem("user-genre");
+      console.log("Genre dihapus dari localStorage (lewati)");
       if (document.startViewTransition) {
         document.startViewTransition(() => {
           location.hash = "/";
