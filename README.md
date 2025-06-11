@@ -36,3 +36,5 @@ Proyek ini merupakan bagian dari penyelesaian program **CodingCamp DBS Foundatio
 ```bash
 git clone https://github.com/agam2345/bookfinder-frontend.git
 cd bookfinder-frontend
+npm install
+npm run start-dev
