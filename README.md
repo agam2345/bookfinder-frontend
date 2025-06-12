@@ -20,7 +20,7 @@ Proyek ini merupakan bagian dari penyelesaian program **CodingCamp DBS Foundatio
 
 ## 🌟 Fitur Aplikasi
 
-- 🔍 **Pencarian Buku** berdasarkan query (judul, pengarang, dsb.)
+- 🔍 **Pencarian Buku** berdasarkan query user
 - 😊 **Rekomendasi Buku Berdasarkan Mood dan Genre**
 - 📚 **Rekomendasi buku Berdasarkan buku terakhir dibaca**
 - 📖 **Halaman Detail Buku** lengkap dengan sinopsis dan informasi penting
