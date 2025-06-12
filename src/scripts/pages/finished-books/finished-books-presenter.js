@@ -29,17 +29,20 @@ export default class FinishedBooksPresenter {
         booksHTML = finishedBooks
           .map((book) =>
             generateFinishedBookItemTemplate({
-              id_buku: book.id,
-              judul_buku: book.title,
-              thumbnail: book.thumbnail,
-              authors: book.authors,
-              num_pages: book.num_pages,
-              total_halaman: book.num_pages,
-              halaman_saat_ini: book.num_pages,
-              tanggal_selesai: new Date(book.finished_at).toLocaleDateString(
-                "id-ID",
-                { year: "numeric", month: "long", day: "numeric" }
-              ),
+              id_buku: book.books.id,
+              judul_buku: book.books.title,
+              thumbnail: book.books.thumbnail,
+              authors: book.books.authors,
+              num_pages: book.books.num_pages,
+              total_halaman: book.books.num_pages,
+              halaman_saat_ini: book.books.num_pages,
+              tanggal_selesai: new Date(
+                book.books.finished_at
+              ).toLocaleDateString("id-ID", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              }),
             })
           )
           .join("");
