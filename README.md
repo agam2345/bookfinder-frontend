@@ -11,7 +11,7 @@ Repositori ini berisi source code untuk **frontend** aplikasi, yang dikembangkan
 BookFinder merupakan solusi digital untuk membantu pembaca menemukan rekomendasi buku yang relevan berdasarkan preferensi emosional dan minat mereka. Pengguna dapat mengeksplorasi rekomendasi berdasarkan:
 
 - **Mood**: suasana hati seperti bahagia, sedih, marah, dll.
-- **Genre**: fiksi, horor, romantis, biografi, dll.
+- **Genre**: fiksi, non fiksi dan fiksi anak-anak
 - **Query**: pencarian manual berdasarkan kata kunci (judul, penulis, dsb).
 
 Proyek ini merupakan bagian dari penyelesaian program **CodingCamp DBS Foundation** yang menekankan pada kolaborasi tim, integrasi API, dan penerapan praktik pengembangan perangkat lunak secara nyata.
