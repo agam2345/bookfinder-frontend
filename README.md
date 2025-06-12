@@ -21,8 +21,8 @@ Proyek ini merupakan bagian dari penyelesaian program **CodingCamp DBS Foundatio
 ## 🌟 Fitur Aplikasi
 
 - 🔍 **Pencarian Buku** berdasarkan query (judul, pengarang, dsb.)
-- 😊 **Rekomendasi Berdasarkan Mood**
-- 📚 **Rekomendasi Berdasarkan Genre**
+- 😊 **Rekomendasi Buku Berdasarkan Mood dan Genre**
+- 📚 **Rekomendasi buku Berdasarkan buku terakhir dibaca**
 - 📖 **Halaman Detail Buku** lengkap dengan sinopsis dan informasi penting
 - ✅ **Tandai Buku Selesai Dibaca** Pengguna dapat menandai buku sebagai telah selesai dibaca.
 - 📈 **Progres Membaca** Lacak sejauh mana buku telah dibaca oleh pengguna.
