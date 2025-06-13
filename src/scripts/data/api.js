@@ -115,22 +115,20 @@ export async function getBooksByMoodOrGenre({ mood, genre }) {
   };
 }
 
-export async function getBooksByQueryUser(query) {
+export async function getBooksByQueryUser(query){
   const accessToken = getAccessToken();
-  const response = await fetch(`${ENDPOINTS.BOOKS}/filter`, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-    body: query,
-  });
+    const response = await fetch(`${ENDPOINTS.BOOKS}/filter?text=${query}`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
 
   const json = await response.json();
 
   return {
     data: json.data,
     ok: response.ok,
-  };
+  };
 }
 
 export async function addFinishedBook(bookData) {

@@ -37,7 +37,7 @@ export default class FinishedBooksPresenter {
               total_halaman: book.books.num_pages,
               halaman_saat_ini: book.books.num_pages,
               tanggal_selesai: new Date(
-                book.books.finished_at
+                book.finished_at
               ).toLocaleDateString("id-ID", {
                 year: "numeric",
                 month: "long",
