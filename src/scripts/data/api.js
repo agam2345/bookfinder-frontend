@@ -103,12 +103,10 @@ export async function getBooksByMoodOrGenre({mood, genre}){
 
 export async function getBooksByQueryUser(query){
   const accessToken = getAccessToken();
-    const response = await fetch(`${ENDPOINTS.BOOKS}/filter`, {
-      method: 'POST',
+    const response = await fetch(`${ENDPOINTS.BOOKS}/filter?text=${query}`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
-      body: query
     });
 
   const json = await response.json();
