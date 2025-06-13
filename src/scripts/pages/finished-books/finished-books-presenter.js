@@ -36,6 +36,7 @@ export default class FinishedBooksPresenter {
               num_pages: book.books.num_pages,
               total_halaman: book.books.num_pages,
               halaman_saat_ini: book.books.num_pages,
+
               tanggal_selesai: new Date(
                 book.finished_at
               ).toLocaleDateString("id-ID", {
@@ -43,6 +44,16 @@ export default class FinishedBooksPresenter {
                 month: "long",
                 day: "numeric",
               }),
+
+              tanggal_selesai: new Date(book.finished_at).toLocaleDateString(
+                "id-ID",
+                {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                }
+              ),
+
             })
           )
           .join("");
