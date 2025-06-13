@@ -583,16 +583,6 @@ select {
   padding: 20px;
 }
 /* END ITEM BOOK */
-.book-card:hover {
-  transform: scale(1.02);
-}
-#book-items {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  padding: 20px;
-  margin: auto 0;
-}
 
 /* Detail Item Book*/
 .detailBooks {
