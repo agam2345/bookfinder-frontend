@@ -584,7 +584,6 @@ select {
 }
 /* END ITEM BOOK */
 
-
 /* Detail Item Book*/
 .detailBooks {
   margin: 0 auto;
@@ -1044,3 +1043,45 @@ select {
 }
 
 /* === END FINISHED BOOKS STYLE === */
+
+/* === RECOMMENDATION ITEMS STYLE === */
+#recommendation-container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 1400px;
+}
+
+#recommendation-container h2 {
+  font-size: 1.5rem;
+  color: #725b3a;
+  margin-bottom: 15px;
+}
+
+#recommendation-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 20px;
+}
+
+.fade-transition {
+  transition: opacity 0.4s ease;
+}
+
+.fade-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.fade-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.hidden-container {
+  display: none !important;
+}
+/* === END RECOMMENDATION ITEMS STYLE === */
