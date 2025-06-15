@@ -8,6 +8,8 @@ import {
 } from "../template";
 import { matchRoute } from "../routes/routes";
 
+import { initDb } from "../data/indexeddb";
+
 export default class App {
   #content;
   #drawerButton;
@@ -18,12 +20,17 @@ export default class App {
     this.#drawerButton = drawerButton;
     this.#navigationDrawer = navigationDrawer;
     this._setupDrawer();
+    this._initializeIndexedDB();
+  }
+
+  async _initializeIndexedDB() {
+    await initDb();
   }
 
   async renderPage() {
     const url = getActiveRoute();
     const routeHandler = matchRoute(url);
-    console.log('urlny',url)
+    console.log("urlny", url);
 
     if (!routeHandler) {
       this.#content.innerHTML = "<p>404 Halaman tidak ditemukan</p>";
@@ -63,7 +70,9 @@ export default class App {
       url === "/login" ||
       url === "/register" ||
       url === "/onboarding/mood" ||
-      url === "/onboarding/genre"
+      url === "/onboarding/genre" ||
+      url === "/progress" ||
+      url === "/selesai"
     ) {
       document.querySelector(".input-group")?.classList.add("d-none"); // sembunyikan pencarian
       document.getElementById("filter-drawer")?.classList.add("d-none"); // sembunyikan filter
@@ -82,9 +91,9 @@ export default class App {
 
     // Sembunyikan drawer button di halaman onboarding
     if (url === "/onboarding/mood" || url === "/onboarding/genre") {
-      this.#drawerButton.style.display = "none";
+      this.#drawerButton.classList.add("d-none");
     } else {
-      this.#drawerButton.style.display = "block";
+      this.#drawerButton.classList.remove("d-none");
     }
   }
 
@@ -134,7 +143,7 @@ export default class App {
     navList.innerHTML = `
     <li><a href="#/">Beranda</a></li>
     <li><a href="#/selesai">Selesai dibaca</a></li>
-    <li><a href="#/profile">Profile</a></li>
+    <li><a href="#/progress">Progress</a></li>
     <li id="filter-drawer"><a href="#"><i class="fas fa-filter"></i>Filter</a></li>
   `;
 

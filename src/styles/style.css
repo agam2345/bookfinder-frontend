@@ -54,7 +54,7 @@ main {
   transition: all 0.3s ease;
   width: 100%;
 }
-.nav-list li .logout-button{
+.nav-list li .logout-button {
   color: red;
 }
 .fas {
@@ -155,7 +155,6 @@ form {
   margin-block-start: 20px;
   cursor: pointer;
 }
-
 
 /* 
 .search-container {
@@ -497,26 +496,26 @@ select {
 .book-item {
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin: 15px;
   transition: transform 0.2s ease;
 
-  display: flex;           
-  align-items: flex-start; 
-  gap: 20px;               
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
 }
 
 .book-item__thumbnail {
-  width: 100px;          /* ukuran gambar kecil */
+  width: 100px; /* ukuran gambar kecil */
   height: auto;
   border-radius: 8px;
-  object-fit: cover;     
-  flex-shrink: 0;        
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
 .book-item__body {
-  flex: 1;               
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -539,7 +538,7 @@ select {
 
 .book-item__rating {
   font-size: 0.9rem;
-  color: #FCA72C;
+  color: #fca72c;
   display: flex;
   align-items: center;
 }
@@ -564,9 +563,9 @@ select {
 .book-item__read-more {
   align-self: flex-end;
   text-decoration: none;
-  margin-top: auto;  
+  margin-top: auto;
   font-weight: bold;
-  background-color: #FCA72C;
+  background-color: #fca72c;
   color: #fff;
   padding: 10px 15px;
   border-radius: 5px;
@@ -574,100 +573,91 @@ select {
   transition: background-color 0.3s ease;
 }
 
-
-
 .book-card:hover {
   transform: scale(1.02);
 }
 
 /* END ITEM BOOK */
-.book-card:hover {
-  transform: scale(1.02);
-}
-#book-items {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  padding: 20px;
-  margin: auto 0;
-}
 
 /* Detail Item Book*/
-.detailBooks{
- margin: 0 auto;
- margin-top: 30px;
- width: 100%;
- max-width: 800px;
- display: grid;
- grid-template-columns: 1fr;
-
+.detailBooks {
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 100%;
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: 1fr;
 }
-.book__title{
+.book__title {
   font-size: 1.4em;
   font-weight: 700;
   margin-bottom: 15px;
 }
 
-.detail_book_body{
+.detail_book_body {
   display: flex;
   gap: 20px;
   /* background-color: red; */
 }
 
-.book__cover{
- min-width: 350px;
+.book__cover {
+  min-width: 350px;
 }
 
-.book__info h3, .book__description h3{
+.book__info h3,
+.book__description h3 {
   font-size: 1.2em;
   font-weight: 700;
 }
 
-.book__info h4{
+.book__info h4 {
   font-size: 1em;
   font-weight: 700;
 }
-.book__info p, .book__description p{
+.book__info p,
+.book__description p {
   font-size: 1em;
-  text-align: justify;;
+  text-align: justify;
 }
 
-
-.book__description{
+.book__description {
   margin-top: 20px;
 }
 
-.book__info .fas{
-   color: #FCA72C;
-
+.book__info .fas {
+  color: #fca72c;
 }
 
 /* Overlay background */
 .loading-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: none; /* Initially hidden */
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none; /* Initially hidden */
+  justify-content: center;
+  align-items: center;
 }
 
 /* Spinner design */
 .spinner {
-    border: 8px solid #f3f3f3; /* Light gray border */
-    border-top: 8px solid #3498db; /* Blue color for spinner */
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 1s linear infinite;
+  border: 8px solid #f3f3f3; /* Light gray border */
+  border-top: 8px solid #3498db; /* Blue color for spinner */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
 }
 
 /* Spinner animation */
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 #main-container{
@@ -676,3 +666,375 @@ select {
 }
 
 
+/*  BUTTON BUAT PROGRESS */
+.book-item__actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.book-item__actions .btn {
+  flex: 1;
+  min-width: max-content;
+}
+
+.btn-progress {
+  align-self: flex-end;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: #fca72c;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-progress:hover {
+  background-color: #e5921d;
+}
+
+/* END */
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+  transform: translateY(0);
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
+
+.modal-content p {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.modal-content input[type="number"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.modal-actions .btn {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.2s ease;
+}
+
+.modal-actions .btn-primary {
+  background-color: #fca72c;
+  color: white;
+}
+
+.modal-actions .btn-primary:hover {
+  background-color: #e5921d;
+}
+
+.modal-actions .btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.modal-actions .btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* Progress Page Specific Styles */
+.progress-page-container {
+  padding: 20px;
+  max-width: 960px;
+  margin: 20px auto;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.progress-stats {
+  display: flex;
+  gap: 30px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #fca72c;
+}
+
+.stat-label {
+  font-size: 0.9em;
+  color: #666;
+  display: block;
+  margin-top: 5px;
+}
+
+.user-info {
+  font-size: 1.1em;
+  color: #333;
+}
+
+.progress-chart-container {
+  margin-bottom: 40px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+.progress-chart-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.chart-controls {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.chart-controls select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.progress-list-section h2 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+#book-progress-list {
+  display: grid;
+  gap: 20px;
+}
+
+.progress-book-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.progress-book-item h3 {
+  margin: 0;
+  color: #fca72c;
+  font-size: 1.4em;
+}
+
+.progress-bar-container {
+  width: 100%;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 10px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #28a745;
+  border-radius: 5px;
+  transition: width 0.3s ease-in-out;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.btn-update-progress {
+  background-color: #ffc107;
+  color: #333;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-end;
+  transition: background-color 0.2s ease;
+}
+
+.btn-update-progress:hover {
+  background-color: #e0a800;
+}
+
+/* === FINISHED BOOKS STYLE === */
+
+.finished-books-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.finished-books-container h1 {
+  font-size: 2rem;
+  color: #5a3e1b;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 20px;
+}
+
+.finished-book-item {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+}
+
+.finished-book-item:hover {
+  transform: translateY(-5px);
+}
+
+.finished-book-item__thumbnail {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.finished-book-item__details {
+  padding: 15px;
+  color: #5a3e1b;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.finished-book-item__title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.finished-book-item__authors {
+  font-style: italic;
+  color: #856243;
+  font-size: 0.9rem;
+}
+
+.progress-bar-container {
+  background-color: #eee;
+  border-radius: 8px;
+  position: relative;
+  height: 14px;
+  width: 100%;
+  margin-block: 6px;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 8px;
+  background-color: #fca72c;
+  transition: width 0.3s ease;
+}
+
+.progress-percentage {
+  position: absolute;
+  right: 10px;
+  top: -24px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #725b3a;
+}
+
+/* Info & Error messages */
+.info-message,
+.error-message {
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 30px;
+}
+
+.info-message {
+  color: #7d674a;
+}
+
+.error-message {
+  color: red;
+}
+
+/* Utility class */
+.hidden {
+  display: none;
+}
+
+/* === END FINISHED BOOKS STYLE === */

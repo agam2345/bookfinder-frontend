@@ -8,6 +8,8 @@ import {
 } from "../utils/auth";
 import OnboardingMoodPage from "../pages/onboarding/onboarding-mood-page";
 import OnboardingGenrePage from "../pages/onboarding/onboarding-genre-page";
+import ProgressPage from "../pages/progress/progress-page";
+import FinishedBooksPage from "../pages/finished-books/finished-books-page";
 
 const routes = {
   "/login": () => checkUnauthenticatedRouteOnly(new LoginPage()),
@@ -16,7 +18,10 @@ const routes = {
   "/onboarding/mood": () => checkAuthenticatedRoute(new OnboardingMoodPage()),
   "/onboarding/genre": () => checkAuthenticatedRoute(new OnboardingGenrePage()),
   "/": () => checkAuthenticatedRoute(new berandaPage()),
-  "/books/:id":  () => checkAuthenticatedRoute(new detailBookPage())
+  "/books/:id": () => checkAuthenticatedRoute(new detailBookPage()),
+
+  "/progress": checkAuthenticatedRoute(new ProgressPage()),
+  "/selesai": checkAuthenticatedRoute(new FinishedBooksPage()),
 };
 
 export function matchRoute(url) {
@@ -35,7 +40,5 @@ export function matchRoute(url) {
 
   return null; // route tidak ditemukan
 }
-
-
 
 export default routes;
