@@ -163,9 +163,22 @@ export default class berandaPage {
             this.#recommendationPresenter = new ItemPresenter({
               view: recommendationItemsContainer,
             });
-            this.#recommendationPresenter.renderBooks(
+
+            console.log(
+              "rekomendasi buku terakhir dibaca",
               recommendationResponse.data
             );
+            const filteredDataRecomendationBuku =
+              recommendationResponse.data.filter((item) => item.title);
+
+            console.log(
+              "Rekomendasi buku terakhir dibaca baru:",
+              filteredDataRecomendationBuku
+            );
+            this.#recommendationPresenter.renderBooks(
+              filteredDataRecomendationBuku
+            );
+
             recommendationContainer.classList.remove("hidden-container");
             recommendationItemsContainer.classList.remove("fade-hidden");
             recommendationItemsContainer.classList.add("fade-visible");
