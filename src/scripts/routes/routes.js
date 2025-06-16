@@ -20,8 +20,8 @@ const routes = {
   "/": () => checkAuthenticatedRoute(new berandaPage()),
   "/books/:id": () => checkAuthenticatedRoute(new detailBookPage()),
 
-  "/progress": checkAuthenticatedRoute(new ProgressPage()),
-  "/selesai": checkAuthenticatedRoute(new FinishedBooksPage()),
+  "/progress": () => checkAuthenticatedRoute(new ProgressPage()),
+  "/selesai": () => checkAuthenticatedRoute(new FinishedBooksPage()),
 };
 
 export function matchRoute(url) {
