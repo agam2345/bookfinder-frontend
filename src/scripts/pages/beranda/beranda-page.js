@@ -176,7 +176,8 @@ export default class berandaPage {
               filteredDataRecomendationBuku
             );
             this.#recommendationPresenter.renderBooks(
-              filteredDataRecomendationBuku
+              filteredDataRecomendationBuku,
+              false
             );
 
             recommendationContainer.classList.remove("hidden-container");
