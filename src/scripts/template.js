@@ -54,14 +54,10 @@ export function generateAuthenticatedNavigationListTemplate() {
   `;
 }
 
-export function generateBookItemTemplate({
-  id,
-  title,
-  description_cleaned,
-  average_rating,
-  thumbnail,
-  num_pages,
-}) {
+export function generateBookItemTemplate(
+  { id, title, description_cleaned, average_rating, thumbnail, num_pages },
+  showReadMore = true
+) {
   return `
     <div tabindex="0" class="book-card book-item" data-bookid="${id}">
      <img src="${thumbnail}" alt="${title}" class="book-item__thumbnail">
@@ -77,9 +73,14 @@ export function generateBookItemTemplate({
         </div>
         <div class="book-item__actions">
           <button class="btn btn-progress" data-id="${id}" data-title="${title}" data-numPages="${num_pages}">Buat Progress</button> 
-          <a class="btn book-item__read-more" href="#/books/${id}">
-            Selengkapnya <i class="fas fa-arrow-right"></i>
-          </a>
+           ${
+             showReadMore
+               ? `
+            <a class="btn book-item__read-more" href="#/books/${id}">
+              Selengkapnya <i class="fas fa-arrow-right"></i>
+            </a>`
+               : ""
+           }
         </div>
       </div>
     </div>
