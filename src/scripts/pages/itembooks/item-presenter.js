@@ -12,17 +12,20 @@ export default class ItemPresenter {
     this.#view = view;
   }
 
-  renderBooks(books) {
+  renderBooks(books, showReadMore = true) {
     const booksHTML = books
       .map((book) =>
-        generateBookItemTemplate({
-          id: book.id,
-          title: book.title,
-          description_cleaned: book.description_cleaned,
-          average_rating: book.average_rating,
-          thumbnail: book.thumbnail,
-          num_pages: book.num_pages,
-        })
+        generateBookItemTemplate(
+          {
+            id: book.id,
+            title: book.title,
+            description_cleaned: book.description_cleaned,
+            average_rating: book.average_rating,
+            thumbnail: book.thumbnail,
+            num_pages: book.num_pages,
+          },
+          showReadMore
+        )
       )
       .join("");
 
