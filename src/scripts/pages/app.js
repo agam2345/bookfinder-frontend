@@ -1,4 +1,4 @@
-import { getActiveRoute } from "../routes/url-parser";
+import { getActiveRoute, parseActivePathname} from "../routes/url-parser";
 import routes from "../routes/routes";
 import { getAccessToken, getLogout } from "../utils/auth";
 import {
@@ -14,11 +14,14 @@ export default class App {
   #content;
   #drawerButton;
   #navigationDrawer;
+  #navigationSkipContent = null;
 
-  constructor({ content, drawerButton, navigationDrawer }) {
+
+  constructor({ content, drawerButton, navigationDrawer, navigationSkipContent }) {
     this.#content = content;
     this.#drawerButton = drawerButton;
     this.#navigationDrawer = navigationDrawer;
+    this.#navigationSkipContent =navigationSkipContent;
     this._setupDrawer();
     this._initializeIndexedDB();
   }
@@ -30,7 +33,8 @@ export default class App {
   async renderPage() {
     const url = getActiveRoute();
     const routeHandler = matchRoute(url);
-    console.log("urlny", url);
+    console.log("urlny", parseActivePathname().id);
+    console.log('url matchnya', routeHandler);
 
     if (!routeHandler) {
       this.#content.innerHTML = "<p>404 Halaman tidak ditemukan</p>";
@@ -88,6 +92,7 @@ export default class App {
 
     // Tunggu sampai DOM sudah terisi sebelum afterRender()
     await page.afterRender();
+    this._updateSkipLink(url);
 
     // Sembunyikan drawer button di halaman onboarding
     if (url === "/onboarding/mood" || url === "/onboarding/genre") {
@@ -171,4 +176,43 @@ export default class App {
       }
     });
   }
+  
+    _updateSkipLink(url) {
+      if (!this.#navigationSkipContent) return;
+    
+      if (url === '/') {
+        this.#navigationSkipContent.setAttribute('href', '#book-items');
+      } else if (url === '/progress') {
+        this.#navigationSkipContent.setAttribute('href', '#progress-container-books');
+      } else if (url === '/selesai') {
+        this.#navigationSkipContent.setAttribute('href', '#finished-books-list');
+      } else if(url === '/login') {
+        this.#navigationSkipContent.setAttribute('href', '#login-form');
+      }
+      else if(url === '/register') {
+        this.#navigationSkipContent.setAttribute('href', '#register-form');
+      }else if(url === '/onboarding/genre') {
+        this.#navigationSkipContent.setAttribute('href', '#onboarding-container');
+      }else if(url === '/onboarding/mood') {
+        this.#navigationSkipContent.setAttribute('href', '#onboarding-container');
+      }else if(url === `/books/${parseActivePathname().id}`) {
+        this.#navigationSkipContent.setAttribute('href', '#detailBooks');
+      }
+      
+    
+      this.#navigationSkipContent.addEventListener('click', (event) => {
+        event.preventDefault();
+        const targetId = event.target.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' }); 
+          targetElement.focus(); 
+          this.#navigationSkipContent.blur();
+        } else {
+          console.error('Target element not found!');
+        }
+      });
+    }
+
 }

@@ -11,6 +11,7 @@ const ENDPOINTS = {
   BOOKS: `${BASE_URL}/books`,
 
   FINISHED_BOOKS: `${BASE_URL}/finished-books`,
+  RECOMMENDED: `${BASE_URL}/books/recommended`,
 };
 export async function getRegistered({ username, email, password }) {
   const data = JSON.stringify({ username, email, password });
@@ -117,13 +118,11 @@ export async function getBooksByMoodOrGenre({ mood, genre }) {
 
 export async function getBooksByQueryUser(query) {
   const accessToken = getAccessToken();
-    const response = await fetch(`${ENDPOINTS.BOOKS}/filter`, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-      body: query
-    });
+  const response = await fetch(`${ENDPOINTS.BOOKS}/filter?text=${query}`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
 
   const json = await response.json();
 
@@ -171,5 +170,23 @@ export async function getFinishedBooks() {
   return {
     ...json,
     ok: fetchResponse.ok,
+  };
+}
+
+export async function getRecommendedBooks(title) {
+  const accessToken = getAccessToken();
+  const response = await fetch(
+    `${ENDPOINTS.RECOMMENDED}?title=${encodeURIComponent(title)}`,
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    }
+  );
+  const json = await response.json();
+  return {
+    data: json.data,
+    ok: response.ok,
   };
 }

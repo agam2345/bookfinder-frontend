@@ -5,7 +5,7 @@ export default class ProgressPage {
 
   async render() {
     return `
-      <div class="progress-page-container">
+      <div class="progress-page-container" id="progress-container-books">
         </div>
     `;
   }

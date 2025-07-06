@@ -9,7 +9,7 @@ export class detailBookPresenter{
 
     async getDetailBook(){
         const data = await getDetailBook(this.#id)
-        console.log('data detail',data)
+        console.log('data detail',this.#id)
         this.#view.showDetailBook(data);
     }
 }

@@ -12,6 +12,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     content: document.getElementById("main-container"),
     drawerButton: document.getElementById("drawer-button"),
     navigationDrawer: document.querySelector(".navigation-drawer"),
+    navigationSkipContent : document.querySelector('.skip-to-content'),
   });
 
   await app.renderPage();
